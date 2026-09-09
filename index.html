@@ -1,0 +1,2810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VELOK Technology | Innovate • Build • Deliver</title>
+
+    <meta name="description"
+        content="VELOK Technology delivers ERP & CRM Development, Web Development, AI & Automation, Cybersecurity, Digital Marketing, UX Design and Mobile App Development solutions.">
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--charcoal);
+            background: var(--cream);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        :root {
+            --mango-50: #fffaf0;
+            --mango-100: #fff2d6;
+            --mango-200: #ffe8b0;
+            --mango-300: #ffd880;
+            --mango-400: #f9be4a;
+            --mango-500: #ee9d2b;
+            --mango-600: #d97d18;
+            --mango-700: #a95e10;
+            --mango-800: #7c4313;
+            --cream: #f8f3ea;
+            --cream-strong: #f4ecdf;
+            --off-white: #fffdf9;
+            --charcoal: #2d221a;
+            --charcoal-soft: #4b3b2e;
+            --brown: #45362b;
+            --muted: #685a50;
+            --line: #eadfc9;
+            --card: #fffdf9;
+            --shadow: rgba(122, 71, 17, 0.12);
+            --dark-panel: #2b2019;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            background: rgba(255, 250, 240, 0.96);
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+
+            border-bottom: 1px solid rgba(234, 223, 201, 0.9);
+
+            z-index: 999;
+
+            transition: background-color 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease, -webkit-backdrop-filter 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 250, 240, 0.14);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom-color: rgba(255, 255, 255, 0.45);
+            box-shadow: 0 12px 30px rgba(94, 58, 18, 0.08);
+        }
+
+        .navbar {
+            height: 82px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            width: 155px;
+            height: auto;
+            opacity: 1;
+            transition: opacity 0.35s ease, filter 0.35s ease;
+            filter: none;
+        }
+
+        .header.scrolled .nav-logo {
+            opacity: 0.35;
+            filter: saturate(0.85) brightness(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            list-style: none;
+
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 600;
+
+            color: var(--charcoal);
+
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--mango-700);
+        }
+
+        .header.scrolled .nav-links a,
+        .header.scrolled .menu-btn {
+            color: var(--charcoal);
+        }
+
+        .nav-button {
+            padding: 12px 22px;
+
+            background: linear-gradient(135deg, var(--mango-500), var(--mango-600));
+            color: white;
+
+            border-radius: 7px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 12px 22px rgba(217, 125, 24, 0.22);
+        }
+
+        .header.scrolled .nav-button {
+            background: linear-gradient(135deg, var(--mango-500), var(--mango-600));
+            box-shadow: 0 10px 20px rgba(217, 125, 24, 0.24);
+        }
+
+        .nav-button:hover {
+            background: linear-gradient(135deg, var(--mango-600), var(--mango-700));
+            transform: translateY(-2px);
+        }
+
+        .menu-btn {
+            display: none;
+
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(71, 51, 38, 0.1);
+            border-radius: 10px;
+            width: 42px;
+            height: 42px;
+
+            font-size: 24px;
+
+            cursor: pointer;
+
+            color: var(--charcoal);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .menu-btn:hover {
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 8px 16px rgba(94, 58, 18, 0.08);
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            padding-top: 82px;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                radial-gradient(circle at 85% 30%, rgba(255, 214, 128, 0.56), transparent 28%),
+                linear-gradient(135deg, #fffaf1, #f9efdc);
+
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+
+            grid-template-columns: 1.15fr 0.85fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .hero-small {
+            display: inline-block;
+
+            color: var(--mango-700);
+
+            font-size: 13px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 70px);
+
+            line-height: 1.08;
+
+            color: var(--charcoal);
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--mango-700);
+        }
+
+        .hero-description {
+            max-width: 620px;
+
+            color: var(--muted);
+
+            font-size: 18px;
+
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 14px 26px;
+
+            border-radius: 7px;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--mango-500), var(--mango-600));
+            color: white;
+            box-shadow: 0 14px 24px rgba(217, 125, 24, 0.18);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--mango-600), var(--mango-700));
+
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--mango-600);
+
+            color: var(--mango-700);
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-outline:hover {
+            background: linear-gradient(135deg, var(--mango-500), var(--mango-600));
+            color: white;
+        }
+
+
+        /* =====================================================
+           HERO RIGHT
+        ===================================================== */
+
+        .hero-right {
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-logo-box {
+            width: 430px;
+            height: 430px;
+
+            background: white;
+
+            border-radius: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            box-shadow:
+                0 30px 80px rgba(7, 91, 215, 0.14);
+
+            border: 1px solid #e8eef7;
+
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        .hero-logo-box img {
+            width: 82%;
+            max-width: 360px;
+        }
+
+        @keyframes floating {
+
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =====================================================
+           STATS
+        ===================================================== */
+
+        .stats-section {
+            background: linear-gradient(135deg, var(--dark-panel), #47362d);
+
+            padding: 55px 0;
+
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 30px;
+
+            text-align: center;
+        }
+
+        .stat {
+            position: relative;
+        }
+
+        .stat:not(:last-child)::after {
+            content: "";
+
+            position: absolute;
+
+            right: 0;
+            top: 15%;
+
+            width: 1px;
+            height: 70%;
+
+            background: rgba(255,255,255,0.18);
+        }
+
+        .counter {
+            font-size: 48px;
+
+            font-weight: 800;
+
+            color: #ffffff;
+        }
+
+        .plus {
+            font-size: 35px;
+
+            color: var(--mango-300);
+        }
+
+        .stat p {
+            color: #b8c4d7;
+
+            font-size: 14px;
+
+            margin-top: 5px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =====================================================
+           SECTIONS
+        ===================================================== */
+
+        .section {
+            padding: 110px 0;
+        }
+
+        .section-label {
+            display: block;
+
+            color: var(--mango-700);
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 44px;
+
+            line-height: 1.15;
+
+            color: var(--charcoal);
+
+            margin-bottom: 18px;
+        }
+
+        .section-title span {
+            color: var(--mango-700);
+        }
+
+        .section-description {
+            color: var(--muted);
+
+            max-width: 680px;
+
+            font-size: 17px;
+        }
+
+        .center-heading {
+            text-align: center;
+
+            max-width: 700px;
+
+            margin: 0 auto 60px;
+        }
+
+        .center-heading .section-description {
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           ABOUT
+        ===================================================== */
+
+        .about {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 80px;
+
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 450px;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--mango-500),
+                    #7a4312
+                );
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 40px;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .about-image::before {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,0.2);
+
+            top: -70px;
+            right: -70px;
+        }
+
+        .about-image img {
+            width: 80%;
+
+            max-width: 360px;
+
+            background: white;
+
+            padding: 15px;
+
+            border-radius: 15px;
+
+            position: relative;
+        }
+
+        .about-text p {
+            color: var(--muted);
+
+            margin-bottom: 18px;
+        }
+
+        .about-points {
+            margin-top: 30px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+        }
+
+        .about-point {
+            font-weight: 700;
+
+            color: #172033;
+        }
+
+        .about-point span {
+            color: var(--mango-700);
+
+            margin-right: 8px;
+        }
+
+
+        /* =====================================================
+           SERVICES
+        ===================================================== */
+
+        .services-section {
+            background: #f7faff;
+        }
+
+        .services-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--card);
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            border: 1px solid var(--line);
+
+            transition: 0.35s;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 3px;
+
+            background: linear-gradient(90deg, var(--mango-400), var(--mango-600));
+
+            transform: scaleX(0);
+
+            transform-origin: left;
+
+            transition: 0.35s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 20px 50px rgba(122, 71, 17, 0.12);
+        }
+
+        .service-number {
+            color: var(--mango-700);
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            margin-bottom: 20px;
+        }
+
+        .service-icon {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: linear-gradient(135deg, rgba(255, 214, 128, 0.35), rgba(249, 190, 74, 0.22));
+
+            font-size: 25px;
+
+            margin-bottom: 22px;
+        }
+
+        .service-card h3 {
+            font-size: 21px;
+
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            color: var(--mango-700);
+
+            font-weight: 700;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           PROJECT
+        ===================================================== */
+
+        .project {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .project-card {
+            background:
+                linear-gradient(
+                    135deg,
+                    #4b2d16,
+                    #d9881d
+                );
+
+            color: white;
+
+            border-radius: 25px;
+
+            padding: 50px;
+
+            min-height: 390px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            box-shadow:
+                0 25px 60px rgba(7, 49, 110, 0.18);
+        }
+
+        .project-tag {
+            color: #ffe7b5;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            font-size: 40px;
+
+            line-height: 1.15;
+
+            margin-bottom: 20px;
+        }
+
+        .project-card p {
+            color: #d3e2f8;
+
+            margin-bottom: 25px;
+        }
+
+        .project-features {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .project-features span {
+            padding: 8px 13px;
+
+            border: 1px solid rgba(255,255,255,0.2);
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            color: #d9e8fb;
+        }
+
+        .project-content h2 {
+            font-size: 45px;
+
+            line-height: 1.15;
+
+            margin-bottom: 20px;
+        }
+
+        .project-content h2 span {
+            color: var(--mango-700);
+        }
+
+        .project-content p {
+            color: var(--muted);
+
+            margin-bottom: 18px;
+        }
+
+
+        /* =====================================================
+           CONSULTING
+        ===================================================== */
+
+        .consulting {
+            background: #fffaf0;
+        }
+
+        .consulting-box {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+
+            align-items: center;
+
+            background: white;
+
+            padding: 60px;
+
+            border-radius: 25px;
+
+            border: 1px solid var(--line);
+
+            box-shadow:
+                0 20px 60px rgba(122, 71, 17, 0.06);
+        }
+
+        .consulting-title {
+            font-size: 38px;
+
+            line-height: 1.2;
+
+            margin-bottom: 20px;
+        }
+
+        .consulting-title span {
+            color: var(--mango-700);
+        }
+
+        .consulting p {
+            color: var(--muted);
+        }
+
+        .consulting-list {
+            display: grid;
+
+            gap: 15px;
+        }
+
+        .consulting-list div {
+            padding: 17px 20px;
+
+            background: linear-gradient(135deg, rgba(255, 245, 219, 0.9), rgba(255, 255, 255, 0.9));
+
+            border-left: 3px solid var(--mango-600);
+
+            font-weight: 700;
+            color: var(--charcoal);
+        }
+
+
+        /* =====================================================
+           WHY US
+        ===================================================== */
+
+        .why-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 25px;
+        }
+
+        .why-card {
+            padding: 30px;
+
+            border: 1px solid var(--line);
+
+            border-radius: 15px;
+
+            transition: 0.3s;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .why-card:hover {
+            transform: translateY(-5px);
+
+            border-color: var(--mango-500);
+            box-shadow: 0 14px 28px rgba(122, 71, 17, 0.08);
+        }
+
+        .why-number {
+            font-size: 14px;
+
+            color: var(--mango-700);
+
+            font-weight: 800;
+
+            margin-bottom: 20px;
+        }
+
+        .why-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            color: var(--muted);
+
+            font-size: 15px;
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .cta {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--mango-600),
+                    #4a2a1a
+                );
+
+            padding: 75px 0;
+
+            color: white;
+        }
+
+        .cta-content {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            color: rgba(255,255,255,0.82);
+        }
+
+        .cta .btn-primary {
+            background: white;
+
+            color: var(--mango-700);
+        }
+
+        .cta .btn-primary:hover {
+            background: #fffaf0;
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 80px;
+        }
+
+        .contact-info h2 {
+            font-size: 45px;
+
+            line-height: 1.15;
+
+            margin-bottom: 20px;
+        }
+
+        .contact-info h2 span {
+            color: var(--mango-700);
+        }
+
+        .contact-info > p {
+            color: var(--muted);
+
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            display: grid;
+
+            gap: 20px;
+        }
+
+        .contact-detail {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: linear-gradient(135deg, rgba(255, 214, 128, 0.35), rgba(249, 190, 74, 0.2));
+
+            border-radius: 10px;
+        }
+
+        .contact-detail strong {
+            display: block;
+
+            margin-bottom: 2px;
+        }
+
+        .contact-detail p {
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+        .contact-form {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 17px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+
+            padding: 15px 17px;
+
+            border: 1px solid #e8dcc0;
+
+            border-radius: 8px;
+
+            font-family: inherit;
+
+            font-size: 15px;
+
+            outline: none;
+
+            background: rgba(255,255,255,0.5);
+            transition: 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--mango-500);
+
+            box-shadow:
+                0 0 0 3px rgba(238,157,43,0.12);
+        }
+
+        .contact-form button {
+            border: none;
+
+            cursor: pointer;
+
+            font-size: 15px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer {
+            background: linear-gradient(180deg, #2d2018, #1b120d);
+
+            color: white;
+
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns: 1.5fr 1fr 1fr;
+
+            gap: 50px;
+
+            padding-bottom: 45px;
+        }
+
+        .footer-logo {
+            width: 180px;
+
+            background: white;
+
+            padding: 10px;
+
+            border-radius: 8px;
+
+            margin-bottom: 20px;
+        }
+
+        .footer-description {
+            color: #98a8bd;
+
+            max-width: 400px;
+        }
+
+        .footer h3 {
+            margin-bottom: 20px;
+
+            font-size: 17px;
+        }
+
+        .footer-links {
+            display: grid;
+
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.72);
+
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #ffd88d;
+
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1b2b40;
+
+            padding-top: 20px;
+
+            text-align: center;
+
+            color: #718198;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 950px) {
+
+            .nav-links,
+            .nav-button {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links.active {
+                display: flex;
+
+                position: absolute;
+
+                top: 82px;
+
+                left: 0;
+
+                width: 100%;
+
+                background: rgba(255, 255, 255, 0.7);
+                backdrop-filter: blur(18px);
+                -webkit-backdrop-filter: blur(18px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+                box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                padding: 25px;
+
+                gap: 20px;
+
+                border-bottom: 1px solid #eee;
+            }
+
+            .hero-content,
+            .about,
+            .project,
+            .consulting-box,
+            .contact {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 130px 0 80px;
+            }
+
+            .hero-logo-box {
+                width: 350px;
+                height: 350px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .section {
+                padding: 75px 0;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .section-title,
+            .project-content h2,
+            .contact-info h2 {
+                font-size: 34px;
+            }
+
+            .services-grid,
+            .why-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat:not(:last-child)::after {
+                display: none;
+            }
+
+            .hero-logo-box {
+                width: 290px;
+                height: 290px;
+            }
+
+            .about-image {
+                min-height: 300px;
+            }
+
+            .about-points {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                padding: 30px;
+            }
+
+            .project-card h3 {
+                font-size: 32px;
+            }
+
+            .consulting-box {
+                padding: 30px;
+            }
+
+            .cta-content {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .cta h2 {
+                font-size: 32px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ===================================================== -->
+
+    <header class="header" id="header">
+
+        <nav class="navbar container">
+
+            <a href="#home">
+
+                <img
+                    src="VELOK TECHNOLOGY.png"
+                    class="nav-logo"
+                    alt="VELOK Technology Logo"
+                >
+
+            </a>
+
+
+            <ul class="nav-links" id="navLinks">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#services">Services</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+
+            <a href="#contact" class="nav-button">
+                Get Started
+            </a>
+
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
+
+    <section class="hero" id="home">
+
+        <div class="container hero-content">
+
+
+            <div class="hero-text">
+
+                <span class="hero-small">
+                    INNOVATE • BUILD • DELIVER
+                </span>
+
+
+                <h1>
+
+                    Technology That
+                    <span>Moves Business Forward.</span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    VELOK Technology delivers innovative digital
+                    solutions that help businesses transform,
+                    automate and grow in a rapidly evolving
+                    technology landscape.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#services"
+                        class="btn btn-primary"
+                    >
+                        Explore Services
+                    </a>
+
+
+                    <a
+                        href="#contact"
+                        class="btn btn-outline"
+                    >
+                        Talk To Us
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="hero-right">
+
+                <div class="hero-logo-box">
+
+                    <img
+                        src="VELOK TECHNOLOGY.png"
+                        alt="VELOK Technology"
+                    >
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         STATS
+    ===================================================== -->
+
+    <section class="stats-section">
+
+        <div class="container stats-grid">
+
+
+            <div class="stat">
+
+                <div>
+
+                    <span
+                        class="counter"
+                        data-target="200"
+                    >
+                        0
+                    </span>
+
+                    <span class="plus">
+                        +
+                    </span>
+
+                </div>
+
+                <p>
+                    Projects Delivered
+                </p>
+
+            </div>
+
+
+
+            <div class="stat">
+
+                <div>
+
+                    <span
+                        class="counter"
+                        data-target="100"
+                    >
+                        0
+                    </span>
+
+                    <span class="plus">
+                        +
+                    </span>
+
+                </div>
+
+                <p>
+                    Clients Collaborated
+                </p>
+
+            </div>
+
+
+
+            <div class="stat">
+
+                <div>
+
+                    <span
+                        class="counter"
+                        data-target="40"
+                    >
+                        0
+                    </span>
+
+                    <span class="plus">
+                        +
+                    </span>
+
+                </div>
+
+                <p>
+                    Team Members
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ABOUT
+    ===================================================== -->
+
+    <section class="section" id="about">
+
+        <div class="container about">
+
+
+            <div class="about-image">
+
+                <img
+                    src="VELOK TECHNOLOGY.png"
+                    alt="VELOK Technology Logo"
+                >
+
+            </div>
+
+
+
+            <div class="about-text">
+
+                <span class="section-label">
+                    ABOUT VELOK
+                </span>
+
+
+                <h2 class="section-title">
+
+                    Building Digital
+                    <span>Solutions For Tomorrow.</span>
+
+                </h2>
+
+
+                <p>
+
+                    VELOK Technology is a technology-driven company
+                    focused on delivering innovative, scalable and
+                    reliable digital solutions.
+
+                </p>
+
+
+                <p>
+
+                    From enterprise applications and web platforms
+                    to AI automation and cybersecurity, we combine
+                    technology, creativity and business understanding
+                    to deliver measurable results.
+
+                </p>
+
+
+                <div class="about-points">
+
+                    <div class="about-point">
+                        <span>✓</span>
+                        Business-Focused Solutions
+                    </div>
+
+                    <div class="about-point">
+                        <span>✓</span>
+                        Experienced Team
+                    </div>
+
+                    <div class="about-point">
+                        <span>✓</span>
+                        Scalable Technology
+                    </div>
+
+                    <div class="about-point">
+                        <span>✓</span>
+                        Long-Term Support
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SERVICES
+    ===================================================== -->
+
+    <section
+        class="section services-section"
+        id="services"
+    >
+
+        <div class="container">
+
+
+            <div class="center-heading">
+
+                <span class="section-label">
+                    OUR SERVICES
+                </span>
+
+
+                <h2 class="section-title">
+
+                    Technology Services
+                    <span>That Deliver.</span>
+
+                </h2>
+
+
+                <p class="section-description">
+
+                    End-to-end technology solutions designed to
+                    solve complex business challenges and create
+                    sustainable growth.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="services-grid">
+
+
+                <!-- SERVICE 01 -->
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        01
+                    </div>
+
+                    <div class="service-icon">
+                        ⚙️
+                    </div>
+
+                    <h3>
+                        ERP & CRM Development
+                    </h3>
+
+                    <p>
+
+                        Custom ERP and CRM solutions that streamline
+                        operations, improve productivity and strengthen
+                        customer relationships.
+
+                    </p>
+
+                    <a
+                        href="#contact"
+                        class="service-link"
+                    >
+                        Learn More →
+                    </a>
+
+                </div>
+
+
+
+                <!-- SERVICE 02 -->
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        02
+                    </div>
+
+                    <div class="service-icon">
+                        💻
+                    </div>
+
+                    <h3>
+                        Web Development
+                    </h3>
+
+                    <p>
+
+                        Modern, responsive and high-performance
+                        websites and web applications built around
+                        your business needs.
+
+                    </p>
+
+                    <a
+                        href="#contact"
+                        class="service-link"
+                    >
+                        Learn More →
+                    </a>
+
+                </div>
+
+
+
+                <!-- SERVICE 03 -->
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        03
+                    </div>
+
+                    <div class="service-icon">
+                        🤖
+                    </div>
+
+                    <h3>
+                        AI & Automation Solutions
+                    </h3>
+
+                    <p>
+
+                        Intelligent automation and AI-powered solutions
+                        that reduce manual work and improve business
+                        efficiency.
+
+                    </p>
+
+                    <a
+                        href="#contact"
+                        class="service-link"
+                    >
+                        Learn More →
+                    </a>
+
+                </div>
+
+
+
+                <!-- SERVICE 04 -->
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        04
+                    </div>
+
+                    <div class="service-icon">
+                        🔐
+                    </div>
+
+                    <h3>
+                        Cybersecurity
+                    </h3>
+
+                    <p>
+
+                        Security-focused solutions designed to protect
+                        applications, infrastructure and valuable
+                        business data.
+
+                    </p>
+
+                    <a
+                        href="#contact"
+                        class="service-link"
+                    >
+                        Learn More →
+                    </a>
+
+                </div>
+
+
+
+                <!-- SERVICE 05 -->
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        05
+                    </div>
+
+                    <div class="service-icon">
+                        📈
+                    </div>
+
+                    <h3>
+                        Digital Marketing
+                    </h3>
+
+                    <p>
+
+                        Data-driven digital marketing strategies that
+                        improve visibility, engagement and business
+                        growth.
+
+                    </p>
+
+                    <a
+                        href="#contact"
+                        class="service-link"
+                    >
+                        Learn More →
+                    </a>
+
+                </div>
+
+
+
+                <!-- SERVICE 06 -->
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        06
+                    </div>
+
+                    <div class="service-icon">
+                        🛠️
+                    </div>
+
+                    <h3>
+                        Maintenance & Support
+                    </h3>
+
+                    <p>
+
+                        Reliable technical support, maintenance and
+                        continuous improvements to keep your systems
+                        running smoothly.
+
+                    </p>
+
+                    <a
+                        href="#contact"
+                        class="service-link"
+                    >
+                        Learn More →
+                    </a>
+
+                </div>
+
+
+
+                <!-- SERVICE 07 -->
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        07
+                    </div>
+
+                    <div class="service-icon">
+                        🎨
+                    </div>
+
+                    <h3>
+                        UX Design
+                    </h3>
+
+                    <p>
+
+                        User-centered experiences and intuitive
+                        interfaces designed to make digital products
+                        simple and engaging.
+
+                    </p>
+
+                    <a
+                        href="#contact"
+                        class="service-link"
+                    >
+                        Learn More →
+                    </a>
+
+                </div>
+
+
+
+                <!-- SERVICE 08 -->
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        08
+                    </div>
+
+                    <div class="service-icon">
+                        📱
+                    </div>
+
+                    <h3>
+                        Mobile App Development
+                    </h3>
+
+                    <p>
+
+                        Scalable and user-friendly mobile applications
+                        built to deliver seamless experiences across
+                        modern devices.
+
+                    </p>
+
+                    <a
+                        href="#contact"
+                        class="service-link"
+                    >
+                        Learn More →
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PROJECT
+    ===================================================== -->
+
+    <section class="section" id="projects">
+
+        <div class="container project">
+
+
+            <div class="project-card">
+
+                <span class="project-tag">
+                    FEATURED PROJECT
+                </span>
+
+
+                <h3>
+                    LogiFlow
+                    <br>
+                    Supply Chain
+                </h3>
+
+
+                <p>
+
+                    A technology-driven supply chain solution
+                    designed to improve visibility, coordination,
+                    workflow and operational efficiency.
+
+                </p>
+
+
+                <div class="project-features">
+
+                    <span>
+                        Supply Chain
+                    </span>
+
+                    <span>
+                        Digital Platform
+                    </span>
+
+                    <span>
+                        Automation
+                    </span>
+
+                    <span>
+                        Business Intelligence
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="project-content">
+
+                <span class="section-label">
+                    OUR PROJECT
+                </span>
+
+
+                <h2>
+
+                    LogiFlow
+                    <span>Supply Chain</span>
+
+                </h2>
+
+
+                <p>
+
+                    LogiFlow Supply Chain is one of our featured
+                    technology initiatives, focused on simplifying
+                    and modernizing supply chain operations.
+
+                </p>
+
+
+                <p>
+
+                    The solution is designed to help organizations
+                    manage processes more efficiently, improve
+                    visibility and make smarter operational decisions.
+
+                </p>
+
+
+                <a
+                    href="#contact"
+                    class="btn btn-primary"
+                >
+                    Discuss Your Project
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CONSULTING
+    ===================================================== -->
+
+    <section class="section consulting">
+
+        <div class="container consulting-box">
+
+
+            <div>
+
+                <span class="section-label">
+                    CONSULTING
+                </span>
+
+
+                <h2 class="consulting-title">
+
+                    Strategic Sourcing &
+                    <span>Procurement Consultant</span>
+
+                </h2>
+
+
+                <p>
+
+                    We help organizations improve sourcing,
+                    procurement processes, supplier management
+                    and operational efficiency through strategic
+                    technology and business consulting.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="consulting-list">
+
+                <div>
+                    Strategic Sourcing
+                </div>
+
+                <div>
+                    Procurement Optimization
+                </div>
+
+                <div>
+                    Supplier Management
+                </div>
+
+                <div>
+                    Cost & Process Optimization
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         WHY US
+    ===================================================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+
+            <div class="center-heading">
+
+                <span class="section-label">
+                    WHY VELOK
+                </span>
+
+
+                <h2 class="section-title">
+
+                    Why Clients
+                    <span>Choose Us.</span>
+
+                </h2>
+
+            </div>
+
+
+
+            <div class="why-grid">
+
+
+                <div class="why-card">
+
+                    <div class="why-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Experienced Team
+                    </h3>
+
+                    <p>
+
+                        A skilled team focused on delivering
+                        technology solutions aligned with your
+                        business goals.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="why-card">
+
+                    <div class="why-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Quality Driven
+                    </h3>
+
+                    <p>
+
+                        We focus on quality, performance,
+                        reliability and long-term value.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="why-card">
+
+                    <div class="why-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Client Focused
+                    </h3>
+
+                    <p>
+
+                        Every solution is designed around
+                        understanding your requirements and
+                        business objectives.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="why-card">
+
+                    <div class="why-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Long-Term Support
+                    </h3>
+
+                    <p>
+
+                        We support our clients beyond delivery
+                        with maintenance, improvements and
+                        technical assistance.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CTA
+    ===================================================== -->
+
+    <section class="cta">
+
+        <div class="container cta-content">
+
+
+            <div>
+
+                <span class="section-label">
+                    LET'S WORK TOGETHER
+                </span>
+
+
+                <h2>
+                    Have a Technology Challenge?
+                </h2>
+
+
+                <p>
+
+                    Let's discuss your idea and build the
+                    right solution for your business.
+
+                </p>
+
+            </div>
+
+
+            <a
+                href="#contact"
+                class="btn btn-primary"
+            >
+                Contact VELOK
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CONTACT
+    ===================================================== -->
+
+    <section class="section" id="contact">
+
+        <div class="container contact">
+
+
+            <div class="contact-info">
+
+                <span class="section-label">
+                    CONTACT US
+                </span>
+
+
+                <h2>
+
+                    Let's Build
+                    <span>Something Great.</span>
+
+                </h2>
+
+
+                <p>
+
+                    Have a project, business requirement or
+                    technology challenge? Get in touch with
+                    the VELOK Technology team.
+
+                </p>
+
+
+                <div class="contact-details">
+
+
+                    <div class="contact-detail">
+
+                        <div class="contact-icon">
+                            ✉️
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Email
+                            </strong>
+
+                            <p>
+                                info@veloktechnology.com
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="contact-detail">
+
+                        <div class="contact-icon">
+                            📞
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Phone
+                            </strong>
+
+                            <p>
+                                +91 9359427954
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="contact-detail">
+
+                        <div class="contact-icon">
+                            🌐
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Address
+                            </strong>
+
+                            <p>
+                                 Indraprastha Colony,plat no 185 B, Peth Vadgoan
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <form
+                class="contact-form"
+                id="contactForm"
+            >
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your Name"
+                    required
+                >
+
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Your Email"
+                    required
+                >
+
+
+                <input
+                    type="text"
+                    id="company"
+                    placeholder="Company Name"
+                >
+
+
+                <input
+                    type="text"
+                    id="subject"
+                    placeholder="Subject"
+                    required
+                >
+
+
+                <textarea
+                    id="message"
+                    rows="6"
+                    placeholder="Tell us about your project..."
+                    required
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    Send Message →
+                </button>
+
+            </form>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer class="footer">
+
+        <div class="container footer-grid">
+
+
+            <div>
+
+                <img
+                    src="VELOK TECHNOLOGY.png"
+                    class="footer-logo"
+                    alt="VELOK Technology"
+                >
+
+
+                <p class="footer-description">
+
+                    Innovate. Build. Deliver.
+
+                    VELOK Technology provides modern digital
+                    solutions that help businesses transform
+                    and grow.
+
+                </p>
+
+            </div>
+
+
+
+            <div>
+
+                <h3>
+                    Quick Links
+                </h3>
+
+
+                <div class="footer-links">
+
+                    <a href="#home">
+                        Home
+                    </a>
+
+                    <a href="#about">
+                        About
+                    </a>
+
+                    <a href="#services">
+                        Services
+                    </a>
+
+                    <a href="#projects">
+                        Projects
+                    </a>
+
+                    <a href="#contact">
+                        Contact
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <div>
+
+                <h3>
+                    Services
+                </h3>
+
+
+                <div class="footer-links">
+
+                    <a href="#services">
+                        ERP & CRM Development
+                    </a>
+
+                    <a href="#services">
+                        Web Development
+                    </a>
+
+                    <a href="#services">
+                        AI & Automation
+                    </a>
+
+                    <a href="#services">
+                        Cybersecurity
+                    </a>
+
+                    <a href="#services">
+                        Mobile App Development
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="container footer-bottom">
+
+            © 2026 VELOK Technology.
+            All Rights Reserved.
+
+            <br>
+
+            Innovate • Build • Deliver
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        menuBtn.addEventListener(
+            "click",
+            function () {
+
+                navLinks.classList.toggle("active");
+
+
+                if (
+                    navLinks.classList.contains("active")
+                ) {
+
+                    menuBtn.textContent = "✕";
+
+                } else {
+
+                    menuBtn.textContent = "☰";
+
+                }
+
+            }
+        );
+
+
+        /* Close menu */
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        navLinks.classList.remove("active");
+
+                        menuBtn.textContent = "☰";
+
+                    }
+                );
+
+            });
+
+
+
+        /* =====================================================
+           ANIMATED COUNTERS
+        ===================================================== */
+
+        const counters =
+            document.querySelectorAll(".counter");
+
+
+        function resetCounters() {
+
+            counters.forEach(function (counter) {
+
+                counter.textContent = "0";
+
+            });
+
+        }
+
+
+        function animateCounter(counter) {
+
+            const target =
+                parseInt(
+                    counter.getAttribute("data-target"),
+                    10
+                );
+
+            const duration = 1400;
+            const startTime = performance.now();
+
+
+            function updateCounterFrame(currentTime) {
+
+                const progress =
+                    Math.min(
+                        (currentTime - startTime) / duration,
+                        1
+                    );
+
+                const easedProgress =
+                    1 - Math.pow(1 - progress, 3);
+
+                const currentValue =
+                    Math.round(
+                        target * easedProgress
+                    );
+
+                counter.textContent = currentValue;
+
+
+                if (progress < 1) {
+
+                    requestAnimationFrame(
+                        updateCounterFrame
+                    );
+
+                }
+
+            }
+
+            requestAnimationFrame(
+                updateCounterFrame
+            );
+
+        }
+
+
+        function startCounters() {
+
+            resetCounters();
+
+            counters.forEach(function (counter) {
+
+                animateCounter(counter);
+
+            });
+
+        }
+
+
+        const statsSection =
+            document.querySelector(
+                ".stats-section"
+            );
+
+
+        const observer =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (entry.isIntersecting) {
+
+                                startCounters();
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.3
+                }
+            );
+
+
+        observer.observe(statsSection);
+
+
+
+        /* =====================================================
+           HEADER STATE
+        ===================================================== */
+
+        const header =
+            document.getElementById("header");
+
+        function updateHeaderState() {
+
+            header.classList.toggle(
+                "scrolled",
+                window.scrollY > 20
+            );
+
+        }
+
+        updateHeaderState();
+
+        window.addEventListener(
+            "scroll",
+            updateHeaderState
+        );
+
+
+
+        /* =====================================================
+           CONTACT FORM
+        ===================================================== */
+
+        const contactForm =
+            document.getElementById(
+                "contactForm"
+            );
+
+
+        contactForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document.getElementById(
+                        "name"
+                    ).value;
+
+
+                alert(
+                    "Thank you " +
+                    name +
+                    "! Your message has been received."
+                );
+
+
+                contactForm.reset();
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
